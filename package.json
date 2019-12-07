@@ -12,6 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "knex": "^0.20.3"
+    "knex": "^0.20.3",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }

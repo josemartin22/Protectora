@@ -1,7 +1,9 @@
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
 
+/* SERVING FRONTEND */
 const staticPath = path.join(__dirname, "client", "dist");
 app.use(express.static(staticPath));
 
@@ -9,7 +11,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve(staticPath, "index.html"));
 });
 
-const PORT = process.env.PORT || 8080;
+/* API ROUTES */
+const auth = require("./routes/auth");
+
+app.use("/auth", auth);
+
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Listening at ${PORT}`);
