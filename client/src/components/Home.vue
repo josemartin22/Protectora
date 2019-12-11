@@ -14,9 +14,14 @@
       <v-container>
         <v-row>
           <v-col v-for="a in animals" :key="a.id">
-            <v-card outlined>
-              <v-img width="250px" height="250px" :src="a.picture"></v-img>
-            </v-card>
+            <FlipCard>
+              <template slot="front">
+                <v-img width="250px" height="250px" :src="a.picture"></v-img>
+              </template>
+               <template slot="back">
+                <a>HOLAAAAAAA</a>
+              </template>
+            </FlipCard>
           </v-col>
         </v-row>
       </v-container>
@@ -25,6 +30,7 @@
 </template>
 
 <script>
+import FlipCard from "./FlipCard";
 export default {
   data: () => ({
     animals: [],
@@ -89,8 +95,12 @@ export default {
         id: i
       });
     }
+  },
+  components: {
+    FlipCard,
   }
 };
+
 </script>
 
 
