@@ -29,6 +29,6 @@ CREATE TABLE Clientes(
 CREATE TABLE Adopta(
     ID_Animal INTEGER PRIMARY KEY, 
     DNI REFERENCES Clientes(DNI) NOT NULL, 
-    Definitiva BOOL, 
+    Definitiva BOOLEAN, 
     Fecha DATE
 );
