@@ -13,6 +13,7 @@
         class="display-1 font-weight-light text-uppercase clickable"
       >mundopet</v-toolbar-title>
       <v-spacer></v-spacer>
+      <span class="link-navbar clickable" @click="$router.push('/about')">Sobre nosotros</span>
       <v-btn color="primary" to="/login">Login/Registro</v-btn>
     </v-app-bar>
 
@@ -36,6 +37,11 @@ export default {
 
 <style>
 .clickable:hover {
+  display: block;
   cursor: pointer;
+}
+.link-navbar {
+  margin-right: 1em;
+  margin-left: 1em;
 }
 </style>
