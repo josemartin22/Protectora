@@ -19,7 +19,7 @@
                 <v-img width="250px" height="250px" :src="a.picture"></v-img>
               </template>
                <template slot="back">
-                <a>HOLAAAAAAA</a>
+                <a>Introducir info del animal</a>
               </template>
             </FlipCard>
           </v-col>
