@@ -1,67 +1,37 @@
 <template>
   <div>
-    <!-- Las estiquetas trabajan con estilos.
-        Los estilos trabajan de dos formas: o bien aniadiendo todas las caracteristicas a la etiqueta
-        o con un archivo css (como vamos a trabajar nosotros)
-    -->
-
-    <!-- div = contenedores, para encapsular objetos (imagenes, texto...) para que sea mas facil su posicionamiento-->
-    <!-- asi le damos una identificacion/clase a un div (clase = class)-->
-
-    <!-- Este div se escargará de mostrar la imagen de carga de la pagina-->
-
-    <div id="principal">
-      <!-- Para poner una imagen se utiliza la etiqueta vacia (etiqueta que se cierra ella misma) img -->
-      <img id="cabecera" src="../assets/FotoPrincipal.jpg" alt="cabecera principal" />
+    <div id="header">
+      <v-img max-width="768px" max-height="432px" src="../assets/FotoPrincipal.jpg" alt="cabecera principal" />
     </div>
 
-    <div id="informacionNosotros">
-      <div id="infoTexto">
-        <h1>QUIENES SOMOS</h1>
-
-        <h4>
-          Este proyecto ha sido desarrollado por 5 alumnos de Ingeniería Informtática:
+    <div id="whoWeAre">
+      <v-card>
+        <v-card-text><h1><p>QUIENES SOMOS</p></h1></v-card-text>
+        <v-card-text><h4><p>Este proyecto ha sido desarrollado por 5 alumnos de Ingeniería Informática:
           <br />Victor Cabrita
           <br />Alba Casillas
           <br />Jose Antonio Martín
           <br />Alejandro Menor
-          <br />Najib Saadouli
-        </h4>
-      </div>
-
-      <div id="infoImagen">
-        <img id="infoFoto" src="../assets/infoImagen.jpg" alt="foto informativa" />
+          <br />Najib Saadouli</p></h4></v-card-text>
+      </v-card>
+      <div>
+        <v-img max-width="850px" src="../assets/infoImagen.jpg" alt="foto informativa" />
       </div>
     </div>
 
-    <div id="miniInfoEmpresa">
-      <h3 id="miniNuestraEmpresa">Nuestra empresa _____</h3>
-    </div>
-
-    <div id="informacionEmpresa">
-      <div id="mision">
-        <h2>NUESTRA MISION</h2>
-
-        <h5
-          class="hempresa"
-        >Ofrecer una conexión entre las distintas protectoras del país para facilitar a quienes quieran adoptar a un animal.</h5>
-      </div>
-
-      <div id="vision">
-        <h2>NUESTRA VISION</h2>
-
-        <h5
-          class="hempresa"
-        >Garantizar un hogar lleno de felicidad y amor para todos los perros y gatos abandonados.</h5>
-      </div>
-
-      <div id="estrategia">
-        <h2>NUESTRAS ESTRATEGIAS</h2>
-
-        <h5
-          class="hempresa"
-        >Nos basamos en mantener un contacto fácil y directo tanto con los clientes como con las protectoras de manera que se puedan garantizar adopciones dinamicas y sencillas.</h5>
-      </div>
+    <div id="infoEmpresa">
+      <v-card>
+        <v-card-text><h1><p>NUESTRA MISION</p></h1></v-card-text>
+        <v-card-text><p>Ofrecer una conexión entre las distintas protectoras del país para facilitar a quienes quieran adoptar a un animal.</p></v-card-text>
+      </v-card>
+      <v-card>
+        <v-card-text><h1><p>NUESTRA VISION</p></h1></v-card-text>
+        <v-card-text><p>Garantizar un hogar lleno de felicidad y amor para todos los perros y gatos abandonados.</p></v-card-text>
+      </v-card>
+      <v-card>
+        <v-card-text><h1><p>NUESTRA ESTRATEGIA</p></h1></v-card-text>
+        <v-card-text><p>Nos basamos en mantener un contacto fácil y directo tanto con los clientes como con las protectoras de manera que se puedan garantizar adopciones dinamicas y sencillas.</p></v-card-text>
+      </v-card>
     </div>
 
     <div id="infoContacto">
@@ -143,7 +113,6 @@
   justify-content: space-around;
   width: 100%;
   padding: 15em;
-  background-image: url("https://images.unsplash.com/photo-1496522650602-5988dce09660?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
   color: white;
 }
 
@@ -151,125 +120,42 @@ div {
   display: block;
 }
 
-/*
-###############################
-ESTILOS PARA EL APARTADO INICIO
-###############################
-*/
-
-#loadimg {
-  margin-top: 30%;
-  width: 80px;
-  height: 80px;
+#header{
+  justify-content: center;
+  display: flex;
+  margin-bottom: 70px;
 }
 
-#principal {
-  width: 100%;
-  /*hace que el elementro sea un bloque*/
+#whoWeAre{
+  flex-direction: row;
+  display: flex;
+  margin:1em;
+  justify-content: center;
+  margin-bottom: 70px;
+  
+}
+
+#whoWeAre .v-card{
+  margin-right:1em;
+  width:50%;
+}
+
+
+#infoEmpresa{
+  flex-direction: row;
+  display: flex;
+  
+}
+
+#infoEmpresa .v-card{
+  margin:1em;
+  width:100%;
+}
+
+p{
   text-align: center;
-  margin-bottom: 10%;
 }
 
-#cabecera {
-  /* Para que el ancho se adapte al 100% de la pagina*/
-  /*atributo:valor;*/
-  width: 70%;
-}
-
-/*
-#################################
-ESTILOS PARA EL APARTADO NOSOTROS
-#################################
-*/
-
-#informacionNosotros {
-  width: 100%;
-  display: inline-block;
-  /*text-align: center; para centrarlo en la pagina*/
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 10%;
-}
-
-#infoTexto {
-  width: 40%;
-  height: 100%;
-  float: left;
-}
-
-#infoTexto h4 {
-  color: gray;
-}
-
-#infoImagen {
-  width: 50%;
-  height: 50%;
-  float: left;
-}
-
-#infoFoto {
-  width: 70%;
-  height: 70%;
-}
-
-/*
-################################
-ESTILOS PARA EL APARTADO EMPRESA
-################################
-*/
-
-#miniInfoEmpresa {
-  margin-left: 5%;
-  color: #676cfb;
-  line-height: 0.5em;
-}
-
-#informacionEmpresa {
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 10%;
-}
-
-/*Para los div dentro de informacion empresa (vision, mision y estrategias)*/
-
-#informacionEmpresa div {
-  width: 30%;
-  height: 100%;
-  float: left;
-}
-
-/* 
-Si haces un cambio aqui, aunque arriba ya tenga unas caracteristicas asociadas (#informacionEMpresa div)
-se cambia
-
-#vision {
-    width: 30%;
-    height: 100%;
-    float: left;
-}
-
-#mision {
-    width: 30%;
-    height: 100%;
-    float: left;
-}
-
-#estrategia {
-    width: 30%;
-    height: 100%;
-    float: left;
-}*/
-
-/* hempresa = headers de la empresa */
-
-.hempresa {
-  text-align: justify;
-  margin: 10px;
-  color: gray;
-}
 
 /*
 #################################
