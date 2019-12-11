@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "heroku-postbuild": "npm install --prefix client && npm install --only=dev --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm install --prefix client && npm install --only=dev --prefix client && npm run build --prefix client",
+    "reset-db": "heroku pg:reset -a protectoras --confirm protectoras && cat createTables.sql | heroku pg:psql -a protectoras"
   },
   "author": "",
   "license": "ISC",
