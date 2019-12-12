@@ -35,28 +35,6 @@
     </div>
 
     <div id="infoContacto">
-      <div id="contactoTitulo">
-        <h1>CONTACTA CON NOSOTROS</h1>
-
-        <h4
-          class="hempresa"
-        >Si tiene alguna queja o pregunta, entonces no dude en contactar con nosotros.</h4>
-
-        <div id="telefono">
-          <figure>
-            <img id="iconPhone" src="../assets/phone32.png" alt="icon phone" />
-            <figcaption class="iconInfo">958345678</figcaption>
-          </figure>
-        </div>
-
-        <div id="email">
-          <figure>
-            <img id="iconMail" src="../assets/mail32.png" alt="icon email" />
-            <figcaption class="iconInfo">demo@example.com</figcaption>
-          </figure>
-        </div>
-      </div>
-
       <div id="formulario">
         <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
         <form action method="get">
@@ -87,19 +65,34 @@
     </div>
 
     <!-- Pie de pagina-->
-    <footer id="footer">
-      <span>
-        <input type="text" class="botonFooter" value="Sobre Nosotros" />
-      </span>
-      <span>
-        <input type="text" class="botonFooter" value="Equipo" />
-      </span>
-      <span>
-        <input type="text" class="botonFooter" value="Contacto" />
-      </span>
-      <span>
-        <input type="text" class="botonFooter" value="Políticas de Privacidad" />
-      </span>
+    <footer>
+      <div>
+        <h3>CONTACTA CON NOSOTROS</h3>
+      </div>
+      <div id="footerText">
+        <div class="footerItems">
+          <p>
+            <img align="left" class="footerPic" src="../assets/phone32.png" alt="icon phone">958345678
+          </p>
+        </div>
+        <div class="footerItems">
+          <p>
+            <img align="left" class="footerPic" src="../assets/mail32.png" alt="icon phone">demo@example.com
+          </p>
+        </div>
+        <div class="footerItems">
+          <p>Sobre Nosotros</p>
+        </div>
+        <div class="footerItems">
+          <p>Equipo</p>
+        </div>
+        <div class="footerItems">
+          <p>Contacto</p>
+        </div>
+        <div class="footerItems">
+          <p>Políticas de Privacidad</p>
+        </div>
+      </div>
     </footer>
   </div>
 </template>
@@ -156,6 +149,37 @@ p{
   text-align: center;
 }
 
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #676cfb;
+  color: white;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+}
+
+#footerText{
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  display: flex;
+}
+
+.footerItems{
+  margin-top:1em;
+  width:100%;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerPic{
+  max-height:25px;
+  max-width:25px;
+}
 
 /*
 #################################
@@ -173,25 +197,6 @@ ESTILOS PARA EL APARTADO CONTACTO
 
 #contactoTitulo {
   width: 40%;
-}
-
-#telefono,
-#email {
-  float: left;
-  margin: 1%;
-  margin-left: 5%;
-}
-
-#iconPhone {
-  box-shadow: 3px 3px 5px 5px #676cfb;
-  border-radius: 10px 10px 10px 10px;
-  margin-left: 5%;
-}
-
-#iconMail {
-  box-shadow: 3px 3px 5px 5px #676cfb;
-  border-radius: 10px 10px 10px 10px;
-  margin-left: 10%;
 }
 
 .iconInfo {
@@ -256,24 +261,5 @@ ESTILOS PARA EL APARTADO FOOTER
 ###############################
 */
 
-#footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #676cfb;
-  color: white;
-  text-align: center;
-}
 
-#footer span {
-  text-align: center;
-  display: inline-block;
-  margin-left: 5%;
-  padding: 10px;
-}
-
-.botonFooter {
-  color: white;
-  background: transparent;
-}
 </style>
