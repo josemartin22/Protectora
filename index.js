@@ -12,6 +12,7 @@ app.get("/", (req, res) => {
 });
 
 /* API ROUTES */
+app.use(express.json());
 const auth = require("./routes/auth");
 
 app.use("/auth", auth);

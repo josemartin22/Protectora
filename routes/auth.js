@@ -1,11 +1,53 @@
 const router = require("express").Router();
+const db = require("../db");
+const jwt = require("jsonwebtoken");
 
-router.post("/register", (req, res) => {
-  res.send("token");
+/* Requires dni, name, email, address, password and phone number 
+    in JSON body
+*/
+router.post("/register/user", (req, res) => {
+  const { dni, name, email, address, password, phone } = req.body;
+
+  if (!dni || !name || !email || !address || !password || !phone)
+    return res.status(400).json({
+      msg:
+        "dni, name, email, address, password and phone are required as JSON fields"
+    });
+
+  db.insert({
+    nombre: name.toLowerCase(),
+    email: email.toLowerCase(),
+    dni: dni.toLowerCase(),
+    direccion: address.toLowerCase(),
+    contrasenia: db.raw(`crypt('${password}', gen_salt('bf'))`),
+    telefono: phone
+  })
+    .into("clientes")
+    .then(() => res.json({ msg: "Success" }))
+    .catch(err => res.status(500).json({ msg: err }));
 });
 
-router.post("/login", (req, res) => {
-  res.send("token");
+router.post("/login/user", (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password)
+    return res.status(400).json({ msg: "Email and password required" });
+
+  db.select("*")
+    .from("clientes")
+    .where({
+      email,
+      contrasenia: db.raw(`crypt('${password}', contrasenia)`)
+    })
+    .then(rows => {
+      if (rows.length) {
+        const token = jwt.sign({ dni: rows[0].dni }, process.env.JWT_SECRET, {
+          expiresIn: "6h"
+        });
+        res.json({ token });
+      } else res.status(400).json({ msg: "Incorrect email or password" });
+    })
+    .catch(() => res.status(400).json({ msg: "Incorrect email or password" }));
 });
 
 module.exports = router;

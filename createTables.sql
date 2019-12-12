@@ -1,6 +1,6 @@
 CREATE EXTENSION pgcrypto; 
 
-CREATE TABLE Protectoras(
+CREATE TABLE protectoras(
     id SERIAL PRIMARY KEY, 
     nombre TEXT, 
     email TEXT, 
@@ -9,7 +9,7 @@ CREATE TABLE Protectoras(
     telefono INTEGER 
 );
 
-CREATE TABLE AnimalesAcogidos(
+CREATE TABLE animales_acogidos(
     id SERIAL PRIMARY KEY, 
     nombre TEXT, 
     sexo TEXT CHECK (sexo in ('MACHO', 'HEMBRA')),
@@ -19,16 +19,16 @@ CREATE TABLE AnimalesAcogidos(
     protectora_id INTEGER REFERENCES Protectoras(id) NOT NULL
 );
 
-CREATE TABLE Clientes(
+CREATE TABLE clientes(
     dni TEXT PRIMARY KEY, 
-    nombre TEXT, 
-    email TEXT, 
-    direccion TEXT, 
-    contrasenia TEXT, 
-    telefono INTEGER
+    nombre TEXT NOT NULL, 
+    email TEXT NOT NULL UNIQUE, 
+    direccion TEXT NOT NULL, 
+    contrasenia TEXT NOT NULL, 
+    telefono INTEGER NOT NULL
 );
 
-CREATE TABLE Adopta(
+CREATE TABLE adopta(
     id SERIAL PRIMARY KEY, 
     dni TEXT REFERENCES Clientes(dni) NOT NULL, 
     definitiva BOOLEAN, 
