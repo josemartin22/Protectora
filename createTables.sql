@@ -1,34 +1,36 @@
+CREATE EXTENSION pgcrypto; 
+
 CREATE TABLE Protectoras(
-    ID_Protectora INTEGER PRIMARY KEY, 
-    Nombre VARCHAR(20), 
-    Email VARCHAR(30), 
-    Contraseña VARCHAR(20), 
-    Direccion VARCHAR(50), 
-    Telefono INTEGER 
+    id SERIAL PRIMARY KEY, 
+    nombre TEXT, 
+    email TEXT, 
+    contrasenia TEXT, 
+    direccion TEXT, 
+    telefono INTEGER 
 );
 
 CREATE TABLE AnimalesAcogidos(
-    ID_Animal INTEGER PRIMARY KEY, 
-    Nombre VARCHAR(20), 
-    Sexo VARCHAR(6) CHECK Sexo in ('Macho', 'Hembra', 'Otro'),
-    Raza VARCHAR(15), 
-    Tamaño VARCHAR(8) CHECK Tamaño in ('TOYS', 'PEQUEÑOS', 'MEDIANOS', 'GRANDES'), 
-    Edad INTEGER CHECK (Edad > 0), 
-    ID_Protectora REFERENCES Protectoras(ID_Protectora) NOT NULL
+    id SERIAL PRIMARY KEY, 
+    nombre TEXT, 
+    sexo TEXT CHECK (sexo in ('MACHO', 'HEMBRA')),
+    raza TEXT, 
+    tamanio TEXT CHECK (tamanio in ('TOYS', 'PEQUEÑOS', 'MEDIANOS', 'GRANDES')), 
+    edad INTEGER CHECK (Edad > 0), 
+    protectora_id INTEGER REFERENCES Protectoras(id) NOT NULL
 );
 
 CREATE TABLE Clientes(
-    DNI VARCHAR(9) PRIMARY KEY, 
-    Nombre VARCHAR(40), 
-    Email VARCHAR(30), 
-    Direccion VARCHAR(50), 
-    Contraseña VARCHAR (20), 
-    Telefono INTEGER
+    dni TEXT PRIMARY KEY, 
+    nombre TEXT, 
+    email TEXT, 
+    direccion TEXT, 
+    contrasenia TEXT, 
+    telefono INTEGER
 );
 
 CREATE TABLE Adopta(
-    ID_Animal INTEGER PRIMARY KEY, 
-    DNI REFERENCES Clientes(DNI) NOT NULL, 
-    Definitiva BOOLEAN, 
-    Fecha DATE
+    id SERIAL PRIMARY KEY, 
+    dni TEXT REFERENCES Clientes(dni) NOT NULL, 
+    definitiva BOOLEAN, 
+    fecha DATE default now()
 );
