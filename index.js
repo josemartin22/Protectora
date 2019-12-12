@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
+const cors = require("cors");
 
 /* SERVING FRONTEND */
 const staticPath = path.join(__dirname, "client", "dist");
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 });
 
 /* API ROUTES */
+app.use(cors());
 app.use(express.json());
 const auth = require("./routes/auth");
 

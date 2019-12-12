@@ -41,9 +41,13 @@ router.post("/login/user", (req, res) => {
     })
     .then(rows => {
       if (rows.length) {
-        const token = jwt.sign({ dni: rows[0].dni }, process.env.JWT_SECRET, {
-          expiresIn: "6h"
-        });
+        const token = jwt.sign(
+          { email: rows[0].email },
+          process.env.JWT_SECRET,
+          {
+            expiresIn: "6h"
+          }
+        );
         res.json({ token });
       } else res.status(400).json({ msg: "Incorrect email or password" });
     })
