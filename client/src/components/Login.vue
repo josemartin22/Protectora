@@ -109,7 +109,9 @@ export default {
             alert(
               "Registro correcto! Puedes utilizar tu email y contraseña para logearte"
             );
-          });
+          })
+          /* eslint-disable no-console */
+          .catch(console.log);
       }
     },
     redirectHome() {

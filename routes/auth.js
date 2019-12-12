@@ -24,7 +24,10 @@ router.post("/register/user", (req, res) => {
   })
     .into("clientes")
     .then(() => res.json({ msg: "Success" }))
-    .catch(err => res.status(500).json({ msg: err }));
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ msg: err });
+    });
 });
 
 router.post("/login/user", (req, res) => {
