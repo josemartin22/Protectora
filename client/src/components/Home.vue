@@ -13,7 +13,7 @@
     <v-card width="60%" min-height="60%">
       <v-container>
         <v-row>
-          <v-col v-for="a in animals" :key="a.id">
+          <v-col v-for="a in animals" :key="a.id" :cols="3">
             <FlipCard>
               <template slot="front">
                 <v-img width="250px" height="250px" :src="a.foto"></v-img>
