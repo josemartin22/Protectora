@@ -11,19 +11,17 @@
       <v-toolbar-title
         @click="$router.push('/')"
         class="display-1 font-weight-light text-uppercase clickable"
-        >mundopet</v-toolbar-title
-      >
+      >mundopet</v-toolbar-title>
       <v-spacer></v-spacer>
-      <span class="link-navbar clickable" @click="$router.push('/about')"
-        >Sobre nosotros</span
-      >
+      <span
+        v-if="protectora"
+        class="link-navbar clickable"
+        @click="$router.push({ path: '/new', query: { protectora: userEmail } })"
+      >Registrar animales</span>
+      <span class="link-navbar clickable" @click="$router.push('/about')">Sobre nosotros</span>
       <v-btn v-if="!token" color="primary" to="/login">Login/Registro</v-btn>
-      <span v-if="token" class="font-weight-bold text-uppercase"
-        >Identificado como {{ userEmail }}</span
-      >
-      <span v-if="token" class="link-navbar clickable" @click="logout"
-        >Salir</span
-      >
+      <span v-if="token" class="font-weight-bold text-uppercase">Identificado como {{ userEmail }}</span>
+      <span v-if="token" class="link-navbar clickable" @click="logout">Salir</span>
     </v-app-bar>
 
     <v-content>
@@ -40,11 +38,13 @@ export default {
   components: {},
 
   data: () => ({
-    token: ""
+    token: "",
+    protectora: false
   }),
 
   mounted() {
     this.token = localStorage.getItem("token") || "";
+    if (localStorage.getItem("protectora")) this.protectora = true;
   },
 
   computed: {

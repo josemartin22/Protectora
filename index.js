@@ -16,8 +16,10 @@ app.get("/", (req, res) => {
 app.use(cors());
 app.use(express.json());
 const auth = require("./routes/auth");
+const protectora = require("./routes/protectora");
 
 app.use("/auth", auth);
+app.use("/protectora", protectora);
 
 const PORT = process.env.PORT;
 

@@ -81,6 +81,7 @@ export default {
       if (email && password) {
         axios.post("/auth/login/protectora", { email, password }).then(res => {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("protectora", "true");
           this.redirectHome();
         });
       }
