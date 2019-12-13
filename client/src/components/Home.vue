@@ -13,7 +13,7 @@
     <v-card width="60%" min-height="60%">
       <v-container>
         <v-row>
-          <v-col v-for="a in animals" :key="a.id" :cols="3">
+          <v-col v-for="a in animals" :key="a.id" id="fCard">
             <FlipCard>
               <template slot="front">
                 <v-img width="250px" height="250px" :src="a.foto"></v-img>
@@ -115,5 +115,12 @@ export default {
   padding: 15em;
   background-image: url("https://images.unsplash.com/photo-1496522650602-5988dce09660?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
   color: white;
+}
+
+#fCard{
+  max-width:250px;
+  max-height:250px;
+  display:flex;
+  margin:1em;
 }
 </style>
