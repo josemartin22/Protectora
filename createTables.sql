@@ -3,7 +3,7 @@ CREATE EXTENSION pgcrypto;
 CREATE TABLE protectoras(
     id SERIAL PRIMARY KEY, 
     nombre TEXT, 
-    email TEXT, 
+    email TEXT UNIQUE, 
     contrasenia TEXT, 
     direccion TEXT, 
     telefono INTEGER 
