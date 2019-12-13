@@ -16,10 +16,15 @@
           <v-col v-for="a in animals" :key="a.id">
             <FlipCard>
               <template slot="front">
-                <v-img width="250px" height="250px" :src="a.picture"></v-img>
+                <v-img width="250px" height="250px" :src="a.foto"></v-img>
               </template>
-               <template slot="back">
-                <a>Introducir info del animal</a>
+              <template slot="back">
+                Nombre: {{a.nombre_animal}}
+                Lugar: {{a.direccion}}
+                Protectora: {{a.nombre}}
+                Sexo: {{a.sexo}}
+                Raza: {{a.raza}}
+                Contacto: {{a.telefono}}
               </template>
             </FlipCard>
           </v-col>
@@ -31,6 +36,7 @@
 
 <script>
 import FlipCard from "./FlipCard";
+import axios from "axios";
 export default {
   data: () => ({
     animals: [],
@@ -89,18 +95,12 @@ export default {
     provinciaSeleccionada: "Burgos"
   }),
   mounted() {
-    for (let i = 0; i < 20; i++) {
-      this.animals.push({
-        picture: "https://source.unsplash.com/random",
-        id: i
-      });
-    }
+    axios.get("/protectora/all").then(res => (this.animals = res.data));
   },
   components: {
-    FlipCard,
+    FlipCard
   }
 };
-
 </script>
 
 

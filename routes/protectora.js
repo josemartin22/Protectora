@@ -52,4 +52,15 @@ router.post("/new", (req, res) => {
     });
 });
 
+router.get("/all", (req, res) => {
+  db.select({ nombre_animal: "animales_acogidos.nombre" }, "*")
+    .from("animales_acogidos")
+    .innerJoin(
+      "protectoras",
+      "animales_acogidos.protectora_id",
+      "protectoras.id"
+    )
+    .then(rows => res.json(rows));
+});
+
 module.exports = router;

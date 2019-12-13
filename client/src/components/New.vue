@@ -49,7 +49,7 @@ export default {
           protectora
         })
         .then(() => alert("Publicación correcta!"))
-        .catch(alert("No hemos podido publicar el animal"));
+        .catch(() => alert("No hemos podido publicar el animal"));
     }
   }
 };
