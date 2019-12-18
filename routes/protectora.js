@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../db");
+const auth = require("../authMiddleware");
 
 router.post("/new", (req, res) => {
   const { name, type, gender, race, size, age, picture, protectora } = req.body;
@@ -53,7 +54,13 @@ router.post("/new", (req, res) => {
 });
 
 router.get("/all", (req, res) => {
-  db.select({ nombre_animal: "animales_acogidos.nombre" }, "*")
+  db.select(
+    {
+      nombre_animal: "animales_acogidos.nombre",
+      id_animal: "animales_acogidos.id"
+    },
+    "*"
+  )
     .from("animales_acogidos")
     .innerJoin(
       "protectoras",
@@ -61,6 +68,56 @@ router.get("/all", (req, res) => {
       "protectoras.id"
     )
     .then(rows => res.json(rows));
+});
+
+router.delete("/delete/:id", auth, (req, res) => {
+  const { id } = req.params;
+
+  const { email } = req.payload;
+
+  if (!id || !email)
+    return res.status(401).json({ msg: "Id param and JWT payload required" });
+
+  db.select("*")
+    .from("protectoras")
+    .where({ email })
+    .then(rows => {
+      if (rows.length == 0) return res.status(500);
+
+      const protectora_id = rows[0].id;
+
+      db.delete()
+        .from("animales_acogidos")
+        .where({ protectora_id, id })
+        .then(n => {
+          if (n) return res.json({ msg: "Success" });
+          else return res.status(500);
+        });
+    });
+});
+
+router.post("/adopta/:id", auth, (req, res) => {
+  const { id } = req.params;
+
+  const { email } = req.payload;
+
+  if (!id || !email)
+    return res.status(401).json({ msg: "Id param and JWT payload required" });
+
+  db.select("*")
+    .from("clientes")
+    .where({ email })
+    .then(rows => {
+      if (rows.length == 0) return res.status(500);
+      const { dni } = rows[0];
+
+      db.insert({ dni, definitiva: false, id_animal: id })
+        .into("adopta")
+        .then(n => {
+          if (n == 0) return res.status(500);
+          else return res.json({ msg: "Success" });
+        });
+    });
 });
 
 module.exports = router;

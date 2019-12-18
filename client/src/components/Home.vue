@@ -13,7 +13,7 @@
     <v-card width="60%" min-height="60%">
       <v-container>
         <v-row>
-          <v-col v-for="a in animals" :key="a.id" id="fCard">
+          <v-col v-for="a in animals" :key="a.id_animal" id="fCard">
             <FlipCard>
               <template slot="front">
                 <v-img width="250px" height="250px" :src="a.foto"></v-img>
@@ -25,6 +25,14 @@
                 Sexo: {{a.sexo}}
                 Raza: {{a.raza}}
                 Contacto: {{a.telefono}}
+                <div v-if="protectora && userEmail == a.email">
+                  <span>Este animal es de tu protectora</span>
+                  <v-btn @click="deleteAnimal(a.id_animal)">Dar de baja</v-btn>
+                </div>
+                <div v-if="!protectora">
+                  <span>Adopta este animal</span>
+                  <v-btn @click="adopta(a.id_animal)">Adopta</v-btn>
+                </div>
               </template>
             </FlipCard>
           </v-col>
@@ -37,6 +45,7 @@
 <script>
 import FlipCard from "./FlipCard";
 import axios from "axios";
+import jwt from "jwt-decode";
 export default {
   data: () => ({
     animals: [],
@@ -92,13 +101,59 @@ export default {
       "Zamora",
       "Zaragoza"
     ],
-    provinciaSeleccionada: "Burgos"
+    provinciaSeleccionada: "Burgos",
+    token: "",
+    protectora: false
   }),
   mounted() {
-    axios.get("/protectora/all").then(res => (this.animals = res.data));
+    this.token = localStorage.getItem("token") || "";
+    if (localStorage.getItem("protectora")) this.protectora = true;
+    this.getAnimals();
   },
   components: {
     FlipCard
+  },
+  computed: {
+    userEmail() {
+      return jwt(this.token).email || "";
+    }
+  },
+  methods: {
+    getAnimals() {
+      axios.get("/protectora/all").then(res => (this.animals = res.data));
+    },
+    deleteAnimal(id) {
+      axios
+        .delete(`/protectora/delete/${id}`, {
+          headers: {
+            Authorization: this.token
+          }
+        })
+        .then(() => {
+          this.getAnimals();
+        })
+        .catch(err => alert(err, "No se pudo dar de baja el animal"));
+    },
+    adopta(id) {
+      if (!this.token) {
+        alert("Tienes que registrarte o logearte para adoptar");
+        return;
+      }
+
+      const config = {
+        method: "POST",
+        url: `/protectora/adopta/${id}`,
+        headers: {
+          Authorization: this.token
+        }
+      };
+
+      axios(config)
+        .then(() =>
+          alert("La adopción ha quedado registrada y la protectora notificada")
+        )
+        .catch(() => alert("No se ha podido adoptar al animal"));
+    }
   }
 };
 </script>
@@ -117,10 +172,10 @@ export default {
   color: white;
 }
 
-#fCard{
-  max-width:250px;
-  max-height:250px;
-  display:flex;
-  margin:1em;
+#fCard {
+  max-width: 250px;
+  max-height: 250px;
+  display: flex;
+  margin: 1em;
 }
 </style>

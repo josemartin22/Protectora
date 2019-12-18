@@ -31,8 +31,8 @@ CREATE TABLE clientes(
 );
 
 CREATE TABLE adopta(
-    id SERIAL PRIMARY KEY, 
     dni TEXT REFERENCES Clientes(dni) NOT NULL, 
     definitiva BOOLEAN, 
+    id_animal INTEGER REFERENCES animales_acogidos(id) PRIMARY KEY,
     fecha DATE default now()
 );
