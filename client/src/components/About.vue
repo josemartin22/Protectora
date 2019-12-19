@@ -49,18 +49,17 @@
     </v-container>
 
     <h1 align="center">CONTÁCTANOS</h1>
-    <div id="infoContacto">
       <div id="formulario">
         <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
         <form action method="get">
           <!-- Los input son cuadros a los que puedes asignarles valores o usarlos para recogida de datos-->
-          <input type="text" id="inpNombre" class="campo" placeholder="NOMBRE" required />
+          <input type="text"  placeholder="NOMBRE" required />
           <br />
           <!-- la indicación required hace que que el campo sea obligatorio para proceder a enviar el formulario-->
-          <input type="email" id="inpMail" class="campo" placeholder="EMAIL" required />
+          <input type="email" placeholder="EMAIL" required />
           <br />
 
-          <input type="text" id="inpAsunto" class="campo" placeholder="ASUNTO" required />
+          <input type="text" placeholder="ASUNTO" required />
           <br />
 
           <textarea
@@ -78,7 +77,6 @@
         </form>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -150,36 +148,30 @@ p{
   margin-bottom: 70px;
 }
 
+input {
+  border-bottom: solid 1px #ccc;
+  width: 90%;
+  padding: 20px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #676cfb;
+}
+
 /*
 #################################
 ESTILOS PARA EL APARTADO CONTACTO
 #################################
 */
 
-#infoContacto {
-  width: 100%;
-  overflow: hidden;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 10%;
-}
-
-#contactoTitulo {
-  width: 40%;
-}
-
-.iconInfo {
-  text-align: left;
-  margin: 2%;
-  color: gray;
-}
-
 #formulario {
-  width: 400px;
+  width: 50%;
   padding: 35px;
   border: 1px solid #676cfb;
-  margin-left: 10%;
   float: left;
+  margin: 2em;
+  justify-self: center;
 }
 
 form {
@@ -189,24 +181,15 @@ form {
   width: 100%;
 }
 
-input,
 textarea {
   border: 0;
   outline: none;
 }
 
-.campo {
-  border-bottom: solid 1px #ccc;
-  width: 90%;
-  padding: 20px;
-}
-
 /*focus sirve para indicar qué ocurrirá cuando se hace click al recuadro
 En este caso el borde se pondrá de un color*/
 
-.campo:focus {
-  border-color: #676cfb;
-}
+
 
 .botonAzul {
   border-radius: 50px;
@@ -223,12 +206,6 @@ En este caso el borde se pondrá de un color*/
   color: white;
   cursor: pointer;
 }
-
-/*
-###############################
-ESTILOS PARA EL APARTADO FOOTER
-###############################
-*/
 
 
 </style>
