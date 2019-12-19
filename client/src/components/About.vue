@@ -74,17 +74,17 @@
           <v-card max-width="500px" max-height="500px">
             <v-card-text>
               <h1>
-                <p>{{p.nombre}}</p>
+                <span class="text-capitalize"><p>{{p.nombre}}</p></span>
               </h1>
             </v-card-text>
             <v-card-text>
-              <h3><p>{{p.direccion}}</p></h3>
+              <span class="text-capitalize"><h2><p>{{p.direccion}}</p></h2></span>
             </v-card-text>
             <v-card-text>
-              <h5><p>{{p.email}}</p></h5>
+              <h3><p>{{p.email}}</p></h3>
             </v-card-text>
             <v-card-text>
-              <h5><p>{{p.telefono}}</p></h5>
+              <h3><p>{{p.telefono}}</p></h3>
             </v-card-text>
           </v-card>
         </v-col>
