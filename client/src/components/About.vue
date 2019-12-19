@@ -1,18 +1,33 @@
 <template>
   <div>
     <div id="header">
-      <v-img max-width="768px" max-height="432px" src="../assets/FotoPrincipal.jpg" alt="cabecera principal" />
+      <v-img
+        max-width="768px"
+        max-height="432px"
+        src="../assets/FotoPrincipal.jpg"
+        alt="cabecera principal"
+      />
     </div>
 
     <div id="whoWeAre">
       <v-card>
-        <v-card-text><h1><p>QUIENES SOMOS</p></h1></v-card-text>
-        <v-card-text><h4><p>Este proyecto ha sido desarrollado por 5 alumnos de Ingeniería Informática:
-          <br />Victor Cabrita
-          <br />Alba Casillas
-          <br />Jose Antonio Martín
-          <br />Alejandro Menor
-          <br />Najib Saadouli</p></h4></v-card-text>
+        <v-card-text>
+          <h1>
+            <p>QUIENES SOMOS</p>
+          </h1>
+        </v-card-text>
+        <v-card-text>
+          <h4>
+            <p>
+              Este proyecto ha sido desarrollado por 5 alumnos de Ingeniería Informática:
+              <br />Victor Cabrita
+              <br />Alba Casillas
+              <br />Jose Antonio Martín
+              <br />Alejandro Menor
+              <br />Najib Saadouli
+            </p>
+          </h4>
+        </v-card-text>
       </v-card>
       <div>
         <v-img max-width="850px" src="../assets/infoImagen.jpg" alt="foto informativa" />
@@ -21,34 +36,68 @@
 
     <div id="infoEmpresa">
       <v-card>
-        <v-card-text><h1><p>NUESTRA MISION</p></h1></v-card-text>
-        <v-card-text><p>Ofrecer una conexión entre las distintas protectoras del país para facilitar a quienes quieran adoptar a un animal.</p></v-card-text>
+        <v-card-text>
+          <h1>
+            <p>NUESTRA MISION</p>
+          </h1>
+        </v-card-text>
+        <v-card-text>
+          <p>Ofrecer una conexión entre las distintas protectoras del país para facilitar a quienes quieran adoptar a un animal.</p>
+        </v-card-text>
       </v-card>
       <v-card>
-        <v-card-text><h1><p>NUESTRA VISION</p></h1></v-card-text>
-        <v-card-text><p>Garantizar un hogar lleno de felicidad y amor para todos los perros y gatos abandonados.</p></v-card-text>
+        <v-card-text>
+          <h1>
+            <p>NUESTRA VISION</p>
+          </h1>
+        </v-card-text>
+        <v-card-text>
+          <p>Garantizar un hogar lleno de felicidad y amor para todos los perros y gatos abandonados.</p>
+        </v-card-text>
       </v-card>
       <v-card>
-        <v-card-text><h1><p>NUESTRA ESTRATEGIA</p></h1></v-card-text>
-        <v-card-text><p>Nos basamos en mantener un contacto fácil y directo tanto con los clientes como con las protectoras de manera que se puedan garantizar adopciones dinamicas y sencillas.</p></v-card-text>
+        <v-card-text>
+          <h1>
+            <p>NUESTRA ESTRATEGIA</p>
+          </h1>
+        </v-card-text>
+        <v-card-text>
+          <p>Nos basamos en mantener un contacto fácil y directo tanto con los clientes como con las protectoras de manera que se puedan garantizar adopciones dinamicas y sencillas.</p>
+        </v-card-text>
       </v-card>
     </div>
 
-    <h1 align="center">PROTECTORAS COLABORADORAS</h1>
-    <v-container>
-      <v-row>
-        <v-col v-for="p in protectoras" :key="p.id">
-          <v-card max-width="500px" max-height="500px">
-            <v-card-text><h1><p>{{p.nombre}}</p></h1></v-card-text>
-            <v-card-text><p>{{p.direccion}}</p></v-card-text>
-            <v-card-text><p>{{p.email}}</p></v-card-text>
-            <v-card-text><p>{{p.telefono}}</p></v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-card width="60%" min-height="60%" line-heigth="0px">
+      <h1>PROTECTORAS COLABORADORAS</h1>
+      <v-container>
+        <v-row>
+          <v-col v-for="p in protectoras" :key="p.id">
+            <v-card>
+              <v-card-text>
+                <h1>
+                  <p>{{p.nombre}}</p>
+                </h1>
+              </v-card-text>
+              <v-card-text>
+                <p>{{p.direccion}}</p>
+              </v-card-text>
+              <v-card-text>
+                <h1>
+                  <p>{{p.email}}</p>
+                </h1>
+              </v-card-text>
+              <v-card-text>
+                <h1>
+                  <p>{{p.telefono}}</p>
+                </h1>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card>
 
-    <h1 align="center">CONTÁCTANOS</h1>
+    <div id="infoContacto">
       <div id="formulario">
         <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
         <form action method="get">
@@ -86,7 +135,7 @@ export default {
   mounted() {
     axios.get("/protectora/all").then(res => (this.protectoras = res.data));
   }
-}
+};
 </script>
 
 <style>
@@ -105,40 +154,36 @@ div {
   display: block;
 }
 
-#header{
+#header {
   justify-content: center;
   display: flex;
   margin-bottom: 70px;
 }
 
-#whoWeAre{
+#whoWeAre {
   flex-direction: row;
   display: flex;
-  margin:1em;
+  margin: 1em;
   justify-content: center;
   margin-bottom: 70px;
-  
 }
 
-#whoWeAre .v-card{
-  margin-right:1em;
-  width:50%;
+#whoWeAre .v-card {
+  margin-right: 1em;
+  width: 50%;
 }
 
-
-#infoEmpresa{
+#infoEmpresa {
   flex-direction: row;
   display: flex;
-  
 }
 
-#infoEmpresa .v-card{
-  margin:1em;
-  width:100%;
-  margin-bottom: 70px;
+#infoEmpresa .v-card {
+  margin: 1em;
+  width: 100%;
 }
 
-p{
+p {
   text-align: center;
 }
 

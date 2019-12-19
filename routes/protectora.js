@@ -67,6 +67,11 @@ router.get("/all", (req, res) => {
       "animales_acogidos.protectora_id",
       "protectoras.id"
     )
+    .whereNotExists(function() {
+      this.select("*")
+        .from("adopta")
+        .whereRaw("id_animal = animales_acogidos.id");
+    })
     .then(rows => res.json(rows));
 });
 
@@ -116,6 +121,32 @@ router.post("/adopta/:id", auth, (req, res) => {
         .then(n => {
           if (n == 0) return res.status(500);
           else return res.json({ msg: "Success" });
+        });
+    });
+});
+
+router.post("/modify/:id", auth, (req, res) => {
+  const { id } = req.params;
+
+  const { email } = req.payload;
+
+  const { nombre, raza, tamanio, edad, foto } = req.body;
+
+  if (!id || !email)
+    return res.status(401).json({ msg: "Id param and JWT payload required" });
+
+  db.select("*")
+    .from("protectoras")
+    .where({ email })
+    .then(rows => {
+      if (rows.length == 0) return res.status(500);
+      const { id: protectora_id } = rows[0];
+      db.update({ nombre, raza, tamanio, edad, foto })
+        .from("animales_acogidos")
+        .where({ id, protectora_id })
+        .then(n => {
+          if (n == 0) return res.status(500);
+          else return res.send({ msg: "Success" });
         });
     });
 });
