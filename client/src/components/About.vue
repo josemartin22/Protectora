@@ -34,22 +34,21 @@
       </v-card>
     </div>
 
-    <v-card width="60%" min-height="60%" line-heigth="0px">
-      <h1>PROTECTORAS COLABORADORAS</h1>
-      <v-container>
-        <v-row>
-          <v-col v-for="p in protectoras" :key="p.id">
-            <v-card>
-              <v-card-text><h1><p>{{p.nombre}}</p></h1></v-card-text>
-              <v-card-text><p>{{p.direccion}}</p></v-card-text>
-              <v-card-text><h1><p>{{p.email}}</p></h1></v-card-text>
-              <v-card-text><h1><p>{{p.telefono}}</p></h1></v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
+    <h1 align="center">PROTECTORAS COLABORADORAS</h1>
+    <v-container>
+      <v-row>
+        <v-col v-for="p in protectoras" :key="p.id">
+          <v-card max-width="500px" max-height="500px">
+            <v-card-text><h1><p>{{p.nombre}}</p></h1></v-card-text>
+            <v-card-text><p>{{p.direccion}}</p></v-card-text>
+            <v-card-text><p>{{p.email}}</p></v-card-text>
+            <v-card-text><p>{{p.telefono}}</p></v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
 
+    <h1 align="center">CONTÁCTANOS</h1>
     <div id="infoContacto">
       <div id="formulario">
         <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
@@ -140,10 +139,15 @@ div {
 #infoEmpresa .v-card{
   margin:1em;
   width:100%;
+  margin-bottom: 70px;
 }
 
 p{
   text-align: center;
+}
+
+.container{
+  margin-bottom: 70px;
 }
 
 /*
