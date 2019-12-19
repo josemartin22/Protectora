@@ -67,7 +67,6 @@
       </v-card>
     </div>
 
-<<<<<<< HEAD
     <v-card width="60%" min-height="60%" line-heigth="0px">
       <h1>PROTECTORAS COLABORADORAS</h1>
       <v-container>
@@ -99,23 +98,6 @@
     </v-card>
 
     <div id="infoContacto">
-=======
-    <h1 align="center">PROTECTORAS COLABORADORAS</h1>
-    <v-container>
-      <v-row>
-        <v-col v-for="p in protectoras" :key="p.id">
-          <v-card max-width="500px" max-height="500px">
-            <v-card-text><h1><p>{{p.nombre}}</p></h1></v-card-text>
-            <v-card-text><p>{{p.direccion}}</p></v-card-text>
-            <v-card-text><p>{{p.email}}</p></v-card-text>
-            <v-card-text><p>{{p.telefono}}</p></v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-
-    <h1 align="center">CONTÁCTANOS</h1>
->>>>>>> 5a73cbf192b61492f54c52414ac2d772ce15c02b
       <div id="formulario">
         <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
         <form action method="get">
@@ -198,16 +180,9 @@ div {
   display: flex;
 }
 
-<<<<<<< HEAD
 #infoEmpresa .v-card {
   margin: 1em;
   width: 100%;
-=======
-#infoEmpresa .v-card{
-  margin:1em;
-  width:100%;
-  margin-bottom: 70px;
->>>>>>> 5a73cbf192b61492f54c52414ac2d772ce15c02b
 }
 
 p {
@@ -277,13 +252,9 @@ En este caso el borde se pondrá de un color*/
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 /*
 ###############################
 ESTILOS PARA EL APARTADO FOOTER
 ###############################
 */
-=======
-
->>>>>>> 5a73cbf192b61492f54c52414ac2d772ce15c02b
 </style>
