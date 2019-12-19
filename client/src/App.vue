@@ -29,7 +29,7 @@
     </v-content>
 
     <!-- Pie de pagina-->
-    <footer>
+    <v-footer id="footer" app color="primary" dark>
         <div class="footerItems">
           <p>
             <img align="left" class="footerPic" src="./assets/phone32.png" alt="icon phone">958345678
@@ -52,7 +52,7 @@
         <div class="footerItems">
           <p>Políticas de Privacidad</p>
         </div>
-    </footer>
+    </v-footer>
   </v-app>
 </template>
 
@@ -97,17 +97,10 @@ export default {
   margin-left: 1em;
 }
 
-footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #676cfb;
-  color: white;
-  text-align: center;
+#footer {
   flex-direction: row;
-  align-items:center;
   display: flex;
-  justify-content: center;
+  flex-wrap: nowrap;
 }
 
 .footerItems{
