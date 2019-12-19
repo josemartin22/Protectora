@@ -97,7 +97,6 @@
       </v-container>
     </v-card>
 
-    <div id="infoContacto">
       <div id="formulario">
         <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
         <form action method="get">
@@ -123,7 +122,7 @@
           <input type="submit" class="botonAzul" value="Enviar" />
         </form>
       </div>
-    </div>
+  </div>
 </template>
 
 <script>
