@@ -78,17 +78,13 @@
               </h1>
             </v-card-text>
             <v-card-text>
-              <p>{{p.direccion}}</p>
+              <h3><p>{{p.direccion}}</p></h3>
             </v-card-text>
             <v-card-text>
-              <h1>
-                <p>{{p.email}}</p>
-              </h1>
+              <h5><p>{{p.email}}</p></h5>
             </v-card-text>
             <v-card-text>
-              <h1>
-                <p>{{p.telefono}}</p>
-              </h1>
+              <h5><p>{{p.telefono}}</p></h5>
             </v-card-text>
           </v-card>
         </v-col>
@@ -123,7 +119,7 @@ export default {
     protectoras: []
   }),
   mounted() {
-    axios.get("/protectora/all").then(res => (this.protectoras = res.data));
+    axios.get("/protectora/allProtectoras").then(res => (this.protectoras = res.data));
   }
 };
 </script>
