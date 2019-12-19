@@ -41,9 +41,6 @@
           </p>
         </div>
         <div class="footerItems">
-          <p>Sobre Nosotros</p>
-        </div>
-        <div class="footerItems">
           <p>Equipo</p>
         </div>
         <div class="footerItems">
