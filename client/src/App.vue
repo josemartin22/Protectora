@@ -32,12 +32,12 @@
     <footer>
         <div class="footerItems">
           <p>
-            <img align="left" class="footerPic" src="../assets/phone32.png" alt="icon phone">958345678
+            <img align="left" class="footerPic" src="./assets/phone32.png" alt="icon phone">958345678
           </p>
         </div>
         <div class="footerItems">
           <p>
-            <img align="left" class="footerPic" src="../assets/mail32.png" alt="icon phone">demo@example.com
+            <img align="left" class="footerPic" src="./assets/mail32.png" alt="icon phone">demo@example.com
           </p>
         </div>
         <div class="footerItems">
