@@ -12,6 +12,7 @@ CREATE TABLE protectoras(
 CREATE TABLE animales_acogidos(
     id SERIAL PRIMARY KEY, 
     nombre TEXT, 
+    modificado BOOLEAN default false,
     tipo TEXT CHECK (tipo in ('GATO', 'PERRO')),
     sexo TEXT CHECK (sexo in ('MACHO', 'HEMBRA')),
     raza TEXT, 
