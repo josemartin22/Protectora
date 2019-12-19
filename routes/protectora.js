@@ -78,7 +78,7 @@ router.get("/all", (req, res) => {
 router.get("/allProtectoras", (req, res) => {
   db.select("*")
     .from("protectoras")
-    .then(rows => res.send.json(rows));
+    .then(rows => res.json(rows));
 });
 
 router.delete("/delete/:id", auth, (req, res) => {
