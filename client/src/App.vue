@@ -29,7 +29,7 @@
     </v-content>
 
     <!-- Pie de pagina-->
-    <v-footer id="footer" app color="primary" dark>
+    <v-footer id="footer" app color="primary" dark absolute>
         <div class="footerItems">
           <p>
             <img align="left" class="footerPic" src="./assets/phone32.png" alt="icon phone">958345678
@@ -98,8 +98,6 @@ export default {
 }
 
 #footer {
-  flex-direction: row;
-  display: flex;
   flex-wrap: nowrap;
 }
 
