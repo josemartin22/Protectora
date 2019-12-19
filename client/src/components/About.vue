@@ -63,8 +63,6 @@
           <br />
 
           <textarea
-            class="campo"
-            id="texMensaje"
             rows="5"
             cols="40"
             placeholder="MENSAJE..."
@@ -148,6 +146,22 @@ p{
   margin-bottom: 70px;
 }
 
+#formulario {
+  width: 50%;
+  padding: 35px;
+  border: 1px solid #676cfb;
+  float: left;
+  margin: 2em;
+  margin-left: 25%;
+}
+
+form {
+  border-radius: 3px;
+  color: #999;
+  font-size: 2.4em;
+  width: 100%;
+}
+
 input {
   border-bottom: solid 1px #ccc;
   width: 90%;
@@ -159,44 +173,19 @@ input:focus {
   border-color: #676cfb;
 }
 
-/*
-#################################
-ESTILOS PARA EL APARTADO CONTACTO
-#################################
-*/
-
-#formulario {
-  width: 50%;
-  padding: 35px;
-  border: 1px solid #676cfb;
-  float: left;
-  margin: 2em;
-  justify-self: center;
-}
-
-form {
-  border-radius: 3px;
-  color: #999;
-  font-size: 2.4em;
-  width: 100%;
-}
-
 textarea {
   border: 0;
   outline: none;
+  padding:20px;
+  text-align: justify;
 }
-
-/*focus sirve para indicar qué ocurrirá cuando se hace click al recuadro
-En este caso el borde se pondrá de un color*/
-
-
 
 .botonAzul {
   border-radius: 50px;
   border: 2px solid #676cfb;
   background: transparent;
   padding: 5px;
-  width: 100px;
+  width: 150px;
   margin-top: 20px;
   color: gray;
 }
@@ -206,6 +195,4 @@ En este caso el borde se pondrá de un color*/
   color: white;
   cursor: pointer;
 }
-
-
 </style>
