@@ -66,10 +66,6 @@
 
     <!-- Pie de pagina-->
     <footer>
-      <div>
-        <h3>CONTACTA CON NOSOTROS</h3>
-      </div>
-      <div id="footerText">
         <div class="footerItems">
           <p>
             <img align="left" class="footerPic" src="../assets/phone32.png" alt="icon phone">958345678
@@ -92,9 +88,7 @@
         <div class="footerItems">
           <p>Políticas de Privacidad</p>
         </div>
-      </div>
     </footer>
-  </div>
 </template>
 
 <style>
@@ -156,15 +150,10 @@ footer {
   background-color: #676cfb;
   color: white;
   text-align: center;
-  flex-direction: column;
-  display: flex;
-}
-
-#footerText{
   flex-direction: row;
-  justify-content: center;
   align-items:center;
   display: flex;
+  justify-content: center;
 }
 
 .footerItems{
