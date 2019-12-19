@@ -30,7 +30,7 @@
                   <v-btn @click="deleteAnimal(a.id_animal)">Dar de baja</v-btn>
                 </div>
                 <div v-if="!protectora">
-                  <span>Adopta este animal<br/></span>
+                  Adopta este animal<br/>
                   <v-btn @click="adopta(a.id_animal)">Adopta</v-btn>
                 </div>
               </template>
