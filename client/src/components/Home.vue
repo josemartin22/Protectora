@@ -26,11 +26,11 @@
                 Raza: {{a.raza}}<br/>
                 Contacto: {{a.telefono}}<br/>
                 <div v-if="protectora && userEmail == a.email">
-                  <span>Este animal es de tu protectora<br/></span>
+                  <span>Este animal es de tu protectora</span>
                   <v-btn @click="deleteAnimal(a.id_animal)">Dar de baja</v-btn>
                 </div>
                 <div v-if="!protectora">
-                  Adopta este animal<br/>
+                  <span>Adopta este animal</span>
                   <v-btn @click="adopta(a.id_animal)">Adopta</v-btn>
                 </div>
               </template>
