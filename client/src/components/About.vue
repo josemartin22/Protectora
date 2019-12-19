@@ -78,17 +78,13 @@
               </h1>
             </v-card-text>
             <v-card-text>
-              <p>{{p.direccion}}</p>
+              <h3><p>{{p.direccion}}</p></h3>
             </v-card-text>
             <v-card-text>
-              <h1>
-                <p>{{p.email}}</p>
-              </h1>
+              <h5><p>{{p.email}}</p></h5>
             </v-card-text>
             <v-card-text>
-              <h1>
-                <p>{{p.telefono}}</p>
-              </h1>
+              <h5><p>{{p.telefono}}</p></h5>
             </v-card-text>
           </v-card>
         </v-col>
@@ -100,12 +96,12 @@
       <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
       <form action method="get">
         <!-- Los input son cuadros a los que puedes asignarles valores o usarlos para recogida de datos-->
-        <input type="text"  placeholder="NOMBRE" required />
+        <input class="input" type="text"  placeholder="NOMBRE" required />
         <br />
         <!-- la indicación required hace que que el campo sea obligatorio para proceder a enviar el formulario-->
-        <input type="email" placeholder="EMAIL" required />
+        <input class="input" type="email" placeholder="EMAIL" required />
         <br />
-        <input type="text" placeholder="ASUNTO" required />
+        <input class="input" type="text" placeholder="ASUNTO" required />
         <br />
         <textarea rows="5" cols="40" placeholder="MENSAJE..." required></textarea>
         <br />
@@ -123,7 +119,7 @@ export default {
     protectoras: []
   }),
   mounted() {
-    axios.get("/protectora/all").then(res => (this.protectoras = res.data));
+    axios.get("/protectora/allProtectoras").then(res => (this.protectoras = res.data));
   }
 };
 </script>
@@ -182,14 +178,14 @@ p {
   margin-bottom: 70px;
 }
 
-input {
+.input {
   border-bottom: solid 1px #ccc;
   width: 90%;
   padding: 20px;
   outline: none;
 }
 
-input:focus {
+.input:focus {
   border-color: #676cfb;
 }
 
