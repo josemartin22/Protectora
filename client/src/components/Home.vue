@@ -19,12 +19,18 @@
                 <v-img width="250px" height="250px" :src="a.foto"></v-img>
               </template>
               <template slot="back">
-                Nombre: {{a.nombre_animal}}<br>
-                Lugar: {{a.direccion}}<br>
-                Protectora: {{a.nombre}}<br>
-                Sexo: {{a.sexo}}<br>
-                Raza: {{a.raza}}<br>
-                Contacto: {{a.telefono}}<br>
+                Nombre: {{a.nombre_animal}}
+                <br>
+                Lugar: {{a.direccion}}
+                <br>
+                Protectora: {{a.nombre}}
+                <br>
+                Sexo: {{a.sexo}}
+                <br>
+                Raza: {{a.raza}}
+                <br>
+                Contacto: {{a.telefono}}
+                <br>
                 <div v-if="protectora && userEmail == a.email">
                   <span>Este animal es de tu protectora</span>
                   <v-btn @click="deleteAnimal(a.id_animal)">Dar de baja</v-btn>
