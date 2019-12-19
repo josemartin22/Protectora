@@ -13,25 +13,34 @@
     <v-card width="60%" min-height="60%" line-heigth="0px">
       <v-container>
         <v-row>
-          <v-col v-for="a in animals" :key="a.id_animal" id="fCard">
+          <v-col v-for="(a,i) in filteredAnimals" :key="a.id_animal" id="fCard">
             <FlipCard>
               <template slot="front">
                 <v-img width="250px" height="250px" :src="a.foto"></v-img>
               </template>
               <template slot="back">
-                Nombre: {{a.nombre_animal}}<br/>
-                Lugar: {{a.direccion}}<br/>
-                Protectora: {{a.nombre}}<br/>
-                Sexo: {{a.sexo}}<br/>
-                Raza: {{a.raza}}<br/>
-                Contacto: {{a.telefono}}<br/>
+                Nombre: {{a.nombre_animal}}
+                <br />Lugar:
+                <span class="text-capitalize">{{a.direccion}}</span>
+                <br />
+                <span class="text-capitalize">Protectora: {{a.nombre}}</span>
+                <br />
+                Sexo: {{a.sexo}}
+                <br />
+                Raza: {{a.raza}}
+                <br />
+                Contacto: {{a.telefono}}
+                <br />
                 <div v-if="protectora && userEmail == a.email">
-                  <span>Este animal es de tu protectora</span><br/>
+                  <span>Este animal es de tu protectora</span>
+                  <br />
                   <v-btn @click="deleteAnimal(a.id_animal)">Dar de baja</v-btn>
+                  <v-btn @click="modificar(i)">Modificar</v-btn>
                 </div>
                 <div v-if="!protectora">
-                  <span>Adopta este animal</span><br/>
-                  <v-btn @click="adopta(a.id_animal)">Adopta</v-btn>
+                  <span>Adopta este animal</span>
+                  <br />
+                  <v-btn @click="adopta(a.id_animal)">Reservar</v-btn>
                 </div>
               </template>
             </FlipCard>
@@ -101,7 +110,7 @@ export default {
       "Zamora",
       "Zaragoza"
     ],
-    provinciaSeleccionada: "Burgos",
+    provinciaSeleccionada: "",
     token: "",
     protectora: false
   }),
@@ -116,6 +125,14 @@ export default {
   computed: {
     userEmail() {
       return jwt(this.token).email || "";
+    },
+    filteredAnimals() {
+      if (!this.provinciaSeleccionada) return this.animals;
+      return this.animals.filter(a => {
+        return (
+          a.direccion.toUpperCase() == this.provinciaSeleccionada.toUpperCase()
+        );
+      });
     }
   },
   methods: {
@@ -149,10 +166,26 @@ export default {
       };
 
       axios(config)
-        .then(() =>
-          alert("La adopción ha quedado registrada y la protectora notificada")
-        )
+        .then(() => {
+          alert("La adopción ha quedado registrada y la protectora notificada");
+          this.getAnimals();
+        })
         .catch(() => alert("No se ha podido adoptar al animal"));
+    },
+    modificar(i) {
+      const animal = this.animals[i];
+
+      this.$router.push({
+        path: "modify",
+        query: {
+          name: animal.nombre_animal,
+          race: animal.raza,
+          age: animal.edad,
+          size: animal.tamanio,
+          id: animal.id_animal,
+          picture: animal.foto
+        }
+      });
     }
   }
 };

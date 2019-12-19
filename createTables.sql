@@ -3,7 +3,7 @@ CREATE EXTENSION pgcrypto;
 CREATE TABLE protectoras(
     id SERIAL PRIMARY KEY, 
     nombre TEXT, 
-    email TEXT UNIQUE, 
+    email TEXT , 
     contrasenia TEXT, 
     direccion TEXT, 
     telefono INTEGER 
@@ -24,7 +24,7 @@ CREATE TABLE animales_acogidos(
 CREATE TABLE clientes(
     dni TEXT PRIMARY KEY, 
     nombre TEXT NOT NULL, 
-    email TEXT NOT NULL UNIQUE, 
+    email TEXT NOT NULL , 
     direccion TEXT NOT NULL, 
     contrasenia TEXT NOT NULL, 
     telefono INTEGER NOT NULL
