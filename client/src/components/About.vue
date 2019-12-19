@@ -67,61 +67,52 @@
       </v-card>
     </div>
 
-    <v-card width="60%" min-height="60%" line-heigth="0px">
-      <h1>PROTECTORAS COLABORADORAS</h1>
-      <v-container>
-        <v-row>
-          <v-col v-for="p in protectoras" :key="p.id">
-            <v-card>
-              <v-card-text>
-                <h1>
-                  <p>{{p.nombre}}</p>
-                </h1>
-              </v-card-text>
-              <v-card-text>
-                <p>{{p.direccion}}</p>
-              </v-card-text>
-              <v-card-text>
-                <h1>
-                  <p>{{p.email}}</p>
-                </h1>
-              </v-card-text>
-              <v-card-text>
-                <h1>
-                  <p>{{p.telefono}}</p>
-                </h1>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
+    <h1 align="center">PROTECTORAS COLABORADORAS</h1>
+    <v-container margin-bottom="70px">
+      <v-row>
+        <v-col v-for="p in protectoras" :key="p.id">
+          <v-card max-width="500px" max-height="500px">
+            <v-card-text>
+              <h1>
+                <p>{{p.nombre}}</p>
+              </h1>
+            </v-card-text>
+            <v-card-text>
+              <p>{{p.direccion}}</p>
+            </v-card-text>
+            <v-card-text>
+              <h1>
+                <p>{{p.email}}</p>
+              </h1>
+            </v-card-text>
+            <v-card-text>
+              <h1>
+                <p>{{p.telefono}}</p>
+              </h1>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
 
-      <div id="formulario">
-        <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
-        <form action method="get">
-          <!-- Los input son cuadros a los que puedes asignarles valores o usarlos para recogida de datos-->
-          <input type="text"  placeholder="NOMBRE" required />
-          <br />
-          <!-- la indicación required hace que que el campo sea obligatorio para proceder a enviar el formulario-->
-          <input type="email" placeholder="EMAIL" required />
-          <br />
-
-          <input type="text" placeholder="ASUNTO" required />
-          <br />
-
-          <textarea
-            rows="5"
-            cols="40"
-            placeholder="MENSAJE..."
-            required
-          ></textarea>
-          <br />
-
-          <!-- tipo submit : lo convierte en un boton -->
-          <input type="submit" class="botonAzul" value="Enviar" />
-        </form>
-      </div>
+    <h1 align="center">CONTÁCTANOS</h1>
+    <div id="formulario">
+      <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
+      <form action method="get">
+        <!-- Los input son cuadros a los que puedes asignarles valores o usarlos para recogida de datos-->
+        <input type="text"  placeholder="NOMBRE" required />
+        <br />
+        <!-- la indicación required hace que que el campo sea obligatorio para proceder a enviar el formulario-->
+        <input type="email" placeholder="EMAIL" required />
+        <br />
+        <input type="text" placeholder="ASUNTO" required />
+        <br />
+        <textarea rows="5" cols="40" placeholder="MENSAJE..." required></textarea>
+        <br />
+        <!-- tipo submit : lo convierte en un boton -->
+        <input type="submit" class="botonAzul" value="Enviar" />
+      </form>
+    </div>
   </div>
 </template>
 
@@ -175,6 +166,7 @@ div {
 #infoEmpresa {
   flex-direction: row;
   display: flex;
+  margin-bottom: 70px;
 }
 
 #infoEmpresa .v-card {
@@ -218,10 +210,7 @@ form {
   width: 100%;
 }
 
-input {
-  border-bottom: solid 1px #ccc;
-  width: 90%;
-  padding: 20px;
+textarea {
   outline: none;
   text-align: justify;
   padding: 20px;
