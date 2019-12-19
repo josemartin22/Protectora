@@ -10,7 +10,7 @@
         <v-select dark solo :items="provincias" v-model="provinciaSeleccionada"></v-select>
       </div>
     </div>
-    <v-card width="60%" min-height="60%">
+    <v-card width="60%" min-height="60%" line-heigth="0px">
       <v-container>
         <v-row>
           <v-col v-for="a in animals" :key="a.id_animal" id="fCard">

@@ -29,7 +29,7 @@
     </v-content>
 
     <!-- Pie de pagina-->
-    <v-footer id="footer" app color="primary" dark absolute>
+    <v-footer id="footer" app color="primary" dark>
         <div class="footerItems">
           <p>
             <img align="left" class="footerPic" src="./assets/phone32.png" alt="icon phone">958345678
