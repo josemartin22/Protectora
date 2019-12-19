@@ -63,32 +63,6 @@
         </form>
       </div>
     </div>
-
-    <!-- Pie de pagina-->
-    <footer>
-        <div class="footerItems">
-          <p>
-            <img align="left" class="footerPic" src="../assets/phone32.png" alt="icon phone">958345678
-          </p>
-        </div>
-        <div class="footerItems">
-          <p>
-            <img align="left" class="footerPic" src="../assets/mail32.png" alt="icon phone">demo@example.com
-          </p>
-        </div>
-        <div class="footerItems">
-          <p>Sobre Nosotros</p>
-        </div>
-        <div class="footerItems">
-          <p>Equipo</p>
-        </div>
-        <div class="footerItems">
-          <p>Contacto</p>
-        </div>
-        <div class="footerItems">
-          <p>Políticas de Privacidad</p>
-        </div>
-    </footer>
 </template>
 
 <style>
@@ -141,33 +115,6 @@ div {
 
 p{
   text-align: center;
-}
-
-footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #676cfb;
-  color: white;
-  text-align: center;
-  flex-direction: row;
-  align-items:center;
-  display: flex;
-  justify-content: center;
-}
-
-.footerItems{
-  margin-top:1em;
-  width:100%;
-  flex-direction: row;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footerPic{
-  max-height:25px;
-  max-width:25px;
 }
 
 /*
