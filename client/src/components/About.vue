@@ -96,12 +96,12 @@
       <!-- La etiqueta form sirve para encapsular los elementos de un formulario-->
       <form action method="get">
         <!-- Los input son cuadros a los que puedes asignarles valores o usarlos para recogida de datos-->
-        <input type="text"  placeholder="NOMBRE" required />
+        <input class="input" type="text"  placeholder="NOMBRE" required />
         <br />
         <!-- la indicación required hace que que el campo sea obligatorio para proceder a enviar el formulario-->
-        <input type="email" placeholder="EMAIL" required />
+        <input class="input" type="email" placeholder="EMAIL" required />
         <br />
-        <input type="text" placeholder="ASUNTO" required />
+        <input class="input" type="text" placeholder="ASUNTO" required />
         <br />
         <textarea rows="5" cols="40" placeholder="MENSAJE..." required></textarea>
         <br />
@@ -178,14 +178,14 @@ p {
   margin-bottom: 70px;
 }
 
-input {
+.input {
   border-bottom: solid 1px #ccc;
   width: 90%;
   padding: 20px;
   outline: none;
 }
 
-input:focus {
+.input:focus {
   border-color: #676cfb;
 }
 
