@@ -159,19 +159,14 @@ input:focus {
   border-color: #676cfb;
 }
 
-/*
-#################################
-ESTILOS PARA EL APARTADO CONTACTO
-#################################
-*/
-
 #formulario {
   width: 50%;
   padding: 35px;
   border: 1px solid #676cfb;
   float: left;
   margin: 2em;
-  justify-self: center;
+  margin-left: 25%;
+  position: center;
 }
 
 form {
@@ -184,11 +179,9 @@ form {
 textarea {
   border: 0;
   outline: none;
+  text-align: justify;
+  padding: 20px;
 }
-
-/*focus sirve para indicar qué ocurrirá cuando se hace click al recuadro
-En este caso el borde se pondrá de un color*/
-
 
 
 .botonAzul {
@@ -196,7 +189,7 @@ En este caso el borde se pondrá de un color*/
   border: 2px solid #676cfb;
   background: transparent;
   padding: 5px;
-  width: 100px;
+  width: 150px;
   margin-top: 20px;
   color: gray;
 }
@@ -206,6 +199,4 @@ En este caso el borde se pondrá de un color*/
   color: white;
   cursor: pointer;
 }
-
-
 </style>
