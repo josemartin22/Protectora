@@ -30,25 +30,25 @@
 
     <!-- Pie de pagina-->
     <v-footer id="footer" app color="primary" dark>
-        <div class="footerItems">
-          <p>
-            <img align="left" class="footerPic" src="./assets/phone32.png" alt="icon phone">958345678
-          </p>
-        </div>
-        <div class="footerItems">
-          <p>
-            <img align="left" class="footerPic" src="./assets/mail32.png" alt="icon phone">demo@example.com
-          </p>
-        </div>
-        <div class="footerItems">
-          <p>Equipo</p>
-        </div>
-        <div class="footerItems">
-          <p>Contacto</p>
-        </div>
-        <div class="footerItems">
-          <p>Políticas de Privacidad</p>
-        </div>
+      <div class="footerItems">
+        <p>
+          <img align="left" class="footerPic" src="./assets/phone32.png" alt="icon phone" />958345678
+        </p>
+      </div>
+      <div class="footerItems">
+        <p>
+          <img align="left" class="footerPic" src="./assets/mail32.png" alt="icon phone" />mundopet@gmail.com
+        </p>
+      </div>
+      <div class="footerItems">
+        <p>Equipo</p>
+      </div>
+      <div class="footerItems">
+        <p>Contacto</p>
+      </div>
+      <div class="footerItems">
+        <p>Políticas de Privacidad</p>
+      </div>
     </v-footer>
   </v-app>
 </template>
@@ -98,17 +98,17 @@ export default {
   flex-wrap: nowrap;
 }
 
-.footerItems{
-  margin-top:1em;
-  width:100%;
+.footerItems {
+  margin-top: 1em;
+  width: 100%;
   flex-direction: row;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footerPic{
-  max-height:25px;
-  max-width:25px;
+.footerPic {
+  max-height: 25px;
+  max-width: 25px;
 }
 </style>
